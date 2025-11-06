@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vans shoe
+* source:	https://sketchfab.com/3d-models/vans-shoe-1585e5837d034631a748d1a86a846782
+* author:	JW (https://sketchfab.com/CrossFireJW)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vans shoe" (https://sketchfab.com/3d-models/vans-shoe-1585e5837d034631a748d1a86a846782) by JW (https://sketchfab.com/CrossFireJW) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

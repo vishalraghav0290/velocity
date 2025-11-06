@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 45 100% 51%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 98%;
+
+    --radius: 0.5rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 12%), hsl(0 0% 7%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 15%), hsl(0 0% 10%));
+    --shadow-glow: 0 0 40px hsl(45 100% 51% / 0.15);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer utilities {
+  .grid-background {
+    position: relative;
+    background-color: hsl(0 0% 6%);
+    /* Ensure content stacks above overlays */
+    isolation: isolate;
+  }
+
+  /* Grid overlay (very faint) */
+  .grid-background::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 120px 120px;
+    opacity: 1;
+  }
+
+  /* Diagonal shading + subtle highlight + noise texture */
+  .grid-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    /* multiple layers: noise image, diagonal dark shapes, subtle light sheen */
+    background-image:
+      url('/placeholder.svg'),
+      linear-gradient(135deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 35%),
+      linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 60%);
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-size: 200px 200px, cover, cover;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+    filter: contrast(0.9) saturate(0.9);
+  }
+
+
+  .diagonal-stripes {
+    background-image: repeating-linear-gradient(
+      45deg,
+      hsl(0 0% 10%),
+      hsl(0 0% 10%) 20px,
+      hsl(0 0% 12%) 20px,
+      hsl(0 0% 12%) 40px
+    );
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 20px hsl(45 100% 51% / 0.3);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scroll-smooth::-webkit-scrollbar {
+    display: none;
+  }
+
+  .perspective-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .rotate-card {
+    transform: rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .rotate-card:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
